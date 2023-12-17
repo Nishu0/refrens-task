@@ -1,16 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from '../contexts/index';
+import { AppRoutes } from '../pages/route';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      
+      <GlobalStyles />
+      <ThemeProvider>
+        <AppRoutes />
+      </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
+const GlobalStyles = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+`
